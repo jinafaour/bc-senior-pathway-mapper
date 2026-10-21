@@ -1,21 +1,25 @@
 import streamlit as st
 
 # ==========================================
-# APP STYLING CONFIGURATION
+# APP STYLING CONFIGURATION (HIGH CONTRAST BLUE)
 # ==========================================
 st.set_page_config(page_title="BC Senior Pathway Mapper", layout="centered")
 
 st.markdown("""
     <style>
     .stApp {
-        background-color: #0e1117;
-        color: #c9d1d9;
+        background-color: #0d1b2a;
+        color: #ffffff;
     }
     h1, h2, h3 {
-        color: #58a6ff;
+        color: #4cc9f0 !important;
+    }
+    p, span, label, li {
+        color: #f8f9fa !important;
     }
     .stTextInput, .stSelectbox {
-        background-color: #161b22;
+        background-color: #1b263b;
+        color: #ffffff;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -41,16 +45,16 @@ st.warning(
 # PROFILE CODE REFERENCE GUIDE
 # ==========================================
 with st.expander("Reference: Cognitive Profile Code Definitions"):
-    st.write("**PA (Practical / Analytical):** Blends analytical thinking with hands-on building and mechanical systems.")
-    st.write("**AC (Analytical / Creative):** Systems thinkers focused on algorithmic logic, coding, and structural patterns.")
-    st.write("**SC (Social / Creative):** Communicators focused on human-centered design, narrative structure, and interactive media.")
-    st.write("**AN (Analytical / Natural):** Data-driven thinkers focused on biological, environmental, and spatial systems.")
-    st.write("**AP (Analytical / Practical):** Focuses on electrical, industrial, and automated system execution.")
-    st.write("**CA (Creative / Analytical):** Combines quantitative data analysis with structured system architecture.")
-    st.write("**SA (Social / Analytical):** Focuses on health informatics, technology policy, and data governance.")
-    st.write("**NA (Natural / Analytical):** Focuses on resource management, chemical processes, and agricultural technology.")
-    st.write("**NP (Natural / Practical):** Focuses on sustainable energy engineering, materials science, and geological systems.")
-    st.write("**PN (Practical / Natural):** Focuses on operations research, robotics process automation, and industrial engineering.")
+    st.markdown("**PA (Practical / Analytical):** Blends analytical thinking with hands-on building and mechanical systems.")
+    st.markdown("**AC (Analytical / Creative):** Systems thinkers focused on algorithmic logic, coding, and structural patterns.")
+    st.markdown("**SC (Social / Creative):** Communicators focused on human-centered design, narrative structure, and interactive media.")
+    st.markdown("**AN (Analytical / Natural):** Data-driven thinkers focused on biological, environmental, and spatial systems.")
+    st.markdown("**AP (Analytical / Practical):** Focuses on electrical, industrial, and automated system execution.")
+    st.markdown("**CA (Creative / Analytical):** Combines quantitative data analysis with structured system architecture.")
+    st.markdown("**SA (Social / Analytical):** Focuses on health informatics, technology policy, and data governance.")
+    st.markdown("**NA (Natural / Analytical):** Focuses on resource management, chemical processes, and agricultural technology.")
+    st.markdown("**NP (Natural / Practical):** Focuses on sustainable energy engineering, materials science, and geological systems.")
+    st.markdown("**PN (Practical / Natural):** Focuses on operations research, robotics process automation, and industrial engineering.")
 
 st.markdown("---")
 
