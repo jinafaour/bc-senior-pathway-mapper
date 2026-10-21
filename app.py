@@ -3,19 +3,20 @@ import streamlit as st
 st.set_page_config(page_title="Senior Pathway Mapper", layout="wide")
 
 # ==========================================
-# CUSTOM BALANCED LIGHT THEME STYLING
+# CUSTOM WARM EDITORIAL THEME STYLING
 # ==========================================
 st.markdown("""
     <style>
     .stApp {
-        background-color: #f8fafc;
-        color: #1e293b;
+        background-color: #faf8f5;
+        color: #2c2c2c;
     }
     section[data-testid="stSidebar"] {
-        background-color: #f1f5f9;
+        background-color: #f0ece1;
+        border-right: 1px solid #e4dec9;
     }
     .stSelectbox, .stTextInput {
-        color: #1e293b;
+        color: #2c2c2c;
     }
     </style>
 """, unsafe_allow_html=True)
