@@ -2,7 +2,11 @@ import streamlit as st
 
 st.set_page_config(page_title="Senior Pathway Mapper", layout="wide")
 
-st.markdown("""
+# ==========================================
+# CUSTOM WARM EDITORIAL THEME STYLING
+# ==========================================
+st.markdown(
+    """
     <style>
     .stApp {
         background-color: #faf8f5;
@@ -16,10 +20,15 @@ st.markdown("""
         color: #2c2c2c;
     }
     </style>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
+# ==========================================
+# SIDEBAR: SECTIONS ORDERED WITH UNIQUE COLORS
+# ==========================================
 st.sidebar.markdown(
-    "<h1 style='color: #64748b;'>Guide and References</h1>", unsafe_allow_html=True
+    "<h1 style='color: grey;'>Guide and References</h1>", unsafe_allow_html=True
 )
 
 st.sidebar.markdown(
@@ -71,7 +80,9 @@ st.sidebar.markdown(
     "<h3 style='color: #28a745;'>Canadian University Admissions</h3>",
     unsafe_allow_html=True,
 )
-st.sidebar.markdown("- [University of British Columbia (UBC)](https://you.ubc.ca/)")
+st.sidebar.markdown(
+    "- [University of British Columbia (UBC)](https://www.ubc.ca/admissions/)"
+)
 st.sidebar.markdown(
     "- [Simon Fraser University (SFU)](https://www.sfu.ca/students/admission.html)"
 )
@@ -95,6 +106,9 @@ st.sidebar.markdown(
     " education standards, UBC, and SFU guidelines."
 )
 
+# ==========================================
+# MAIN PAGE CONTENT
+# ==========================================
 st.title("Senior Pathway Mapper (Grades 10-12)")
 st.write(
     "Map cognitive profiles to secondary graduation requirements and university"
@@ -857,7 +871,7 @@ st.markdown(
 )
 st.markdown(
     "- [University of British Columbia (UBC) Undergraduate"
-    " Admissions](https://you.ubc.ca/)"
+    " Admissions](https://www.ubc.ca/admissions/)"
 )
 st.markdown(
     "- [Simon Fraser University (SFU) Undergraduate"
