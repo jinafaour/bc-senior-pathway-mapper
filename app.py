@@ -2,9 +2,6 @@ import streamlit as st
 
 st.set_page_config(page_title="Senior Pathway Mapper", layout="wide")
 
-# ==========================================
-# CUSTOM WARM EDITORIAL THEME STYLING
-# ==========================================
 st.markdown("""
     <style>
     .stApp {
@@ -21,9 +18,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# ==========================================
-# SIDEBAR: SECTIONS ORDERED WITH UNIQUE COLORS
-# ==========================================
 st.sidebar.markdown(
     "<h1 style='color: #64748b;'>Guide and References</h1>", unsafe_allow_html=True
 )
@@ -101,9 +95,6 @@ st.sidebar.markdown(
     " education standards, UBC, and SFU guidelines."
 )
 
-# ==========================================
-# MAIN PAGE CONTENT
-# ==========================================
 st.title("Senior Pathway Mapper (Grades 10-12)")
 st.write(
     "Map cognitive profiles to secondary graduation requirements and university"
@@ -125,11 +116,12 @@ st.info(
     " established your profile code."
 )
 
-# --- INSTRUCTIONAL GUIDE FOR GETTING STARTED ---
 st.success(
-    "👋 **How to use this app:** Follow the steps sequentially from top to bottom. "
-    "First, review the expandable notes below if you want to understand student pain points and grade requirements. "
-    "Then, enter your profile code in Section 1 to explore careers, and select your target track in Section 2 to build your high school roadmap."
+    "How to use this app: Follow the steps sequentially from top to bottom."
+    " Review the expandable notes below to understand student pain points and"
+    " grade requirements. Enter your profile code in Section 1 to explore"
+    " careers, and select your target track in Section 2 to build your high"
+    " school roadmap with explicit core and elective distribution."
 )
 
 with st.expander("What Problem Does This App Solve?", expanded=False):
@@ -149,9 +141,10 @@ with st.expander(
 ):
     st.markdown(
         "- Secondary Graduation Requirements (General Framework):\n  - Minimum"
-        " 80 credits across Grades 10 to 12.\n  - Minimum passing grade per high"
-        " school course: C- (50%) or equivalent standard.\n  - Mandatory"
-        " provincial/state literacy and numeracy assessments.\n- University"
+        " 80 total credits (52 required core credits + 28 elective credits"
+        " across Grades 10 to 12).\n  - Minimum passing grade per"
+        " high school course: C- (50%) or equivalent standard.\n  - Mandatory"
+        " provincial literacy and numeracy assessments.\n- University"
         " Admission Standards (Major Institutions Context):\n  - General"
         " Admission Minimum: Overall average of 70%, with at least 70% in"
         " senior English.\n  - Competitive Target Programs (AI, Software"
@@ -163,9 +156,6 @@ with st.expander(
 
 st.markdown("---")
 
-# ==========================================
-# STEP 1: PROFILE-MATCHED RECOMMENDATIONS
-# ==========================================
 st.subheader("1. Profile-Matched Major Recommendations")
 st.write(
     "Expand any recommended major below to view its description, career paths,"
@@ -703,21 +693,19 @@ for major in recommended:
         st.markdown(f"- What you do: {details['focus']}")
         st.markdown(f"- Possible Jobs: {details['jobs']}")
 
-# --- INSTRUCTION AFTER SECTION 1 ---
 st.info(
-    "💡 **Next Step Instructions:** Look through the matched majors above and note their **Category Track**. "
-    "Once you find a field that interests you, move down to Section 2 and select its corresponding category track."
+    "Next Step Instructions: Look through the matched majors above and note"
+    " their Category Track. Once you find a field that interests you, move down"
+    " to Section 2 and select its corresponding category track."
 )
 
 st.markdown("---")
 
-# ==========================================
-# STEP 2: TARGET FIELD SELECTION & ROADMAP
-# ==========================================
 st.subheader("2. Select Target Post-Secondary Field")
 st.write(
     "Select the category track below to generate the exact senior high school"
-    " prerequisite roadmap."
+    " prerequisite roadmap, structured with Ministry Core requirements and"
+    " strategic elective slots."
 )
 
 target_field = st.selectbox(
@@ -736,10 +724,11 @@ target_field = st.selectbox(
     ],
 )
 
-# --- INSTRUCTION AFTER FIELD SELECTION ---
 st.info(
-    "💡 **Final Step:** Click the button below to generate a year-by-year high school curriculum timeline "
-    "tailored specifically to your selected field of study."
+    "Final Step: Click the button below to generate a year-by-year high school"
+    " curriculum timeline tailored specifically to your selected field of study,"
+    " separating mandatory core credits from strategic university prerequisite"
+    " electives."
 )
 
 st.markdown("---")
@@ -753,65 +742,107 @@ if st.button("Generate Senior Roadmap", type="primary"):
     ):
         st.success("Targeting Tech/AI Track")
         st.write(
-            "Grade 10: Pre-Calculus 10, Science 10, Computer Programming 11/12"
-            " (ADST)"
+            "**Grade 10 (Core & Elective Distribution):**\n"
+            "  - Ministry Core: Pre-Calculus 10, Science 10, Social Studies 10,"
+            " Language Arts 10, PHE 10, Career-Life Education 10\n"
+            "  - Strategic Elective Slot: Computer Programming 11/12 (ADST)"
         )
         st.write(
-            "Grade 11: Pre-Calculus 11, Physics 11, Chemistry 11, English"
-            " Studies 11, Computer Science 11"
+            "**Grade 11 (Core & Elective Distribution):**\n"
+            "  - Ministry Core: Pre-Calculus 11, English Studies 11, Social"
+            " Studies 11/12\n"
+            "  - Strategic Elective Slots: Physics 11, Chemistry 11, Computer"
+            " Science 11"
         )
         st.write(
-            "Grade 12: Calculus 12, Pre-Calculus 12, Physics 12, English 12,"
-            " Computer Studies 12 / Data Analytics 12"
+            "**Grade 12 (Core & Elective Distribution):**\n"
+            "  - Ministry Core: English 12, Career-Life Connections & Capstone\n"
+            "  - Strategic Elective Slots: Calculus 12, Pre-Calculus 12, Physics"
+            " 12, Computer Studies 12 / Data Analytics 12"
         )
     elif "Engineering" in target_field:
         st.success("Targeting Applied Science / Engineering Track")
-        st.write("Grade 10: Pre-Calculus 10, Science 10, ADST Metal/Electronics 10")
         st.write(
-            "Grade 11: Pre-Calculus 11, Physics 11, Chemistry 11, English Studies"
-            " 11"
+            "**Grade 10 (Core & Elective Distribution):**\n"
+            "  - Ministry Core: Pre-Calculus 10, Science 10, Social Studies 10,"
+            " Language Arts 10, PHE 10, Career-Life Education 10\n"
+            "  - Strategic Elective Slot: ADST Metal/Electronics 10"
         )
         st.write(
-            "Grade 12: Calculus 12, Pre-Calculus 12, Physics 12, Chemistry 12,"
-            " English 12"
+            "**Grade 11 (Core & Elective Distribution):**\n"
+            "  - Ministry Core: Pre-Calculus 11, English Studies 11, Social"
+            " Studies 11/12\n"
+            "  - Strategic Elective Slots: Physics 11, Chemistry 11"
+        )
+        st.write(
+            "**Grade 12 (Core & Elective Distribution):**\n"
+            "  - Ministry Core: English 12, Career-Life Connections & Capstone\n"
+            "  - Strategic Elective Slots: Calculus 12, Pre-Calculus 12, Physics"
+            " 12, Chemistry 12"
         )
     elif "Health Sciences" in target_field or "Medicine" in target_field:
         st.success("Targeting Health Sciences & Medicine Track")
-        st.write("Grade 10: Pre-Calculus 10, Science 10")
         st.write(
-            "Grade 11: Pre-Calculus 11, Chemistry 11, Life Sciences 11"
-            " (Biology), English Studies 11"
+            "**Grade 10 (Core & Elective Distribution):**\n"
+            "  - Ministry Core: Pre-Calculus 10, Science 10, Social Studies 10,"
+            " Language Arts 10, PHE 10, Career-Life Education 10\n"
+            "  - Strategic Elective Slot: General Fine Arts / Applied Skills"
         )
         st.write(
-            "Grade 12: Pre-Calculus 12, Anatomy & Physiology 12, Chemistry 12,"
-            " English 12"
+            "**Grade 11 (Core & Elective Distribution):**\n"
+            "  - Ministry Core: Pre-Calculus 11, English Studies 11, Social"
+            " Studies 11/12\n"
+            "  - Strategic Elective Slots: Chemistry 11, Life Sciences 11"
+            " (Biology)"
+        )
+        st.write(
+            "**Grade 12 (Core & Elective Distribution):**\n"
+            "  - Ministry Core: English 12, Career-Life Connections & Capstone\n"
+            "  - Strategic Elective Slots: Pre-Calculus 12, Anatomy & Physiology"
+            " 12, Chemistry 12"
         )
     elif "Business" in target_field:
         st.success("Targeting Business / Commerce Track")
         st.write(
-            "Grade 10: Foundations of Math 10 or Pre-Calculus 10, Science 10"
+            "**Grade 10 (Core & Elective Distribution):**\n"
+            "  - Ministry Core: Foundations of Math 10 or Pre-Calculus 10,"
+            " Science 10, Social Studies 10, Language Arts 10, PHE 10,"
+            " Career-Life Education 10\n"
+            "  - Strategic Elective Slot: Intro to Business / Technology"
+            " Applications"
         )
         st.write(
-            "Grade 11: Pre-Calculus 11 or Foundations of Math 11, English Studies"
-            " 11, Economics 12"
+            "**Grade 11 (Core & Elective Distribution):**\n"
+            "  - Ministry Core: Pre-Calculus 11 or Foundations of Math 11,"
+            " English Studies 11, Social Studies 11/12\n"
+            "  - Strategic Elective Slots: Economics 12, Financial Accounting 11"
         )
         st.write(
-            "Grade 12: Pre-Calculus 12 or Calculus 12, English 12, Data"
-            " Analytics 11/12"
+            "**Grade 12 (Core & Elective Distribution):**\n"
+            "  - Ministry Core: English 12, Career-Life Connections & Capstone\n"
+            "  - Strategic Elective Slots: Pre-Calculus 12 or Calculus 12, Data"
+            " Analytics 12, Entrepreneurship 12"
         )
     else:
         st.success(f"Targeting: {target_field}")
         st.write(
-            "Grade 10: Foundations of Math 10, Science 10, Career Life"
-            " Education 10"
+            "**Grade 10 (Core & Elective Distribution):**\n"
+            "  - Ministry Core: Foundations of Math 10, Science 10, Social"
+            " Studies 10, Language Arts 10, PHE 10, Career-Life Education 10\n"
+            "  - Strategic Elective Slot: Arts Education / Applied Skills"
         )
         st.write(
-            "Grade 11: Foundations of Math 11, English Studies 11, Relevant"
-            " Academic Electives"
+            "**Grade 11 (Core & Elective Distribution):**\n"
+            "  - Ministry Core: Foundations of Math 11, English Studies 11, Social"
+            " Studies 11/12\n"
+            "  - Strategic Elective Slots: Modern Languages 11, Humanities"
+            " Electives"
         )
         st.write(
-            "Grade 12: Foundations of Math 12 / Pre-Calculus 12, English 12,"
-            " Grade 12 Academic Electives"
+            "**Grade 12 (Core & Elective Distribution):**\n"
+            "  - Ministry Core: English 12, Career-Life Connections & Capstone\n"
+            "  - Strategic Elective Slots: Foundations of Math 12 / Academic"
+            " Electives, Literature/Social Sciences 12"
         )
 
 st.markdown("---")
