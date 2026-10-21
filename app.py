@@ -125,6 +125,13 @@ st.info(
     " established your profile code."
 )
 
+# --- INSTRUCTIONAL GUIDE FOR GETTING STARTED ---
+st.success(
+    "👋 **How to use this app:** Follow the steps sequentially from top to bottom. "
+    "First, review the expandable notes below if you want to understand student pain points and grade requirements. "
+    "Then, enter your profile code in Section 1 to explore careers, and select your target track in Section 2 to build your high school roadmap."
+)
+
 with st.expander("What Problem Does This App Solve?", expanded=False):
     st.markdown(
         "- The Student Pain Point: Choosing courses for Grades 10, 11, and 12"
@@ -156,6 +163,9 @@ with st.expander(
 
 st.markdown("---")
 
+# ==========================================
+# STEP 1: PROFILE-MATCHED RECOMMENDATIONS
+# ==========================================
 st.subheader("1. Profile-Matched Major Recommendations")
 st.write(
     "Expand any recommended major below to view its description, career paths,"
@@ -693,8 +703,17 @@ for major in recommended:
         st.markdown(f"- What you do: {details['focus']}")
         st.markdown(f"- Possible Jobs: {details['jobs']}")
 
+# --- INSTRUCTION AFTER SECTION 1 ---
+st.info(
+    "💡 **Next Step Instructions:** Look through the matched majors above and note their **Category Track**. "
+    "Once you find a field that interests you, move down to Section 2 and select its corresponding category track."
+)
+
 st.markdown("---")
 
+# ==========================================
+# STEP 2: TARGET FIELD SELECTION & ROADMAP
+# ==========================================
 st.subheader("2. Select Target Post-Secondary Field")
 st.write(
     "Select the category track below to generate the exact senior high school"
@@ -715,6 +734,12 @@ target_field = st.selectbox(
         "Business / Commerce & Analytics",
         "Arts, Humanities & Social Sciences",
     ],
+)
+
+# --- INSTRUCTION AFTER FIELD SELECTION ---
+st.info(
+    "💡 **Final Step:** Click the button below to generate a year-by-year high school curriculum timeline "
+    "tailored specifically to your selected field of study."
 )
 
 st.markdown("---")
