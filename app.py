@@ -7,41 +7,6 @@ st.sidebar.markdown(
 )
 
 st.sidebar.markdown(
-    "<h3 style='color: #007bff;'>App Navigation</h3>", unsafe_allow_html=True
-)
-st.sidebar.markdown(
-    "- [Grade 8 Compass App](https://grade8compass.streamlit.app/)"
-)
-
-st.sidebar.markdown(
-    "<h3 style='color: #28a745;'>Canadian University Admissions</h3>",
-    unsafe_allow_html=True,
-)
-st.sidebar.markdown("- [University of British Columbia (UBC)](https://you.ubc.ca/)")
-st.sidebar.markdown(
-    "- [Simon Fraser University (SFU)](https://www.sfu.ca/students/admission.html)"
-)
-st.sidebar.markdown(
-    "- [University of Toronto (U of T)](https://future.utoronto.ca/)"
-)
-st.sidebar.markdown(
-    "- [McGill University](https://www.mcgill.ca/undergraduate-admissions/)"
-)
-
-st.sidebar.markdown(
-    "<h3 style='color: #fd7e14;'>Disclaimer and Sources</h3>",
-    unsafe_allow_html=True,
-)
-st.sidebar.markdown(
-    "Disclaimer: This tool is for educational planning purposes only. Course"
-    " availability varies by secondary school, and post-secondary admission"
-    " requirements change periodically. Verify official prerequisite"
-    " guidelines directly with provincial education authorities and target"
-    " university admissions offices.\n\nSources: Mapped from provincial"
-    " education standards, UBC, and SFU guidelines."
-)
-
-st.sidebar.markdown(
     "<h3 style='color: #6f42c1;'>Cognitive Profile Definitions</h3>",
     unsafe_allow_html=True,
 )
@@ -84,6 +49,34 @@ st.sidebar.markdown(
 st.sidebar.markdown(
     "**PN (Practical / Natural):** Focuses on operations research, robotics"
     " process automation, and industrial engineering."
+)
+
+st.sidebar.markdown(
+    "<h3 style='color: #28a745;'>Canadian University Admissions</h3>",
+    unsafe_allow_html=True,
+)
+st.sidebar.markdown("- [University of British Columbia (UBC)](https://you.ubc.ca/)")
+st.sidebar.markdown(
+    "- [Simon Fraser University (SFU)](https://www.sfu.ca/students/admission.html)"
+)
+st.sidebar.markdown(
+    "- [University of Toronto (U of T)](https://future.utoronto.ca/)"
+)
+st.sidebar.markdown(
+    "- [McGill University](https://www.mcgill.ca/undergraduate-admissions/)"
+)
+
+st.sidebar.markdown(
+    "<h3 style='color: #fd7e14;'>Disclaimer and Sources</h3>",
+    unsafe_allow_html=True,
+)
+st.sidebar.markdown(
+    "Disclaimer: This tool is for educational planning purposes only. Course"
+    " availability varies by secondary school, and post-secondary admission"
+    " requirements change periodically. Verify official prerequisite"
+    " guidelines directly with provincial education authorities and target"
+    " university admissions offices.\n\nSources: Mapped from provincial"
+    " education standards, UBC, and SFU guidelines."
 )
 
 st.title("Senior Pathway Mapper (Grades 10-12)")
