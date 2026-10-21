@@ -2,306 +2,674 @@ import streamlit as st
 
 st.set_page_config(page_title="Senior Pathway Mapper", layout="wide")
 
-st.sidebar.title("Guide and References")
-
-st.sidebar.subheader("App Navigation")
-st.sidebar.markdown("- [Pathfinder BC Assessment](https://pathfinder-bc.streamlit.app)")
-
-st.sidebar.subheader("Canadian University Admissions")
-st.sidebar.markdown("- [University of British Columbia (UBC)](https://you.ubc.ca/)")
-st.sidebar.markdown("- [Simon Fraser University (SFU)](https://www.sfu.ca/students/admission.html)")
-st.sidebar.markdown("- [University of Toronto (U of T)](https://future.utoronto.ca/)")
-st.sidebar.markdown("- [McGill University](https://www.mcgill.ca/undergraduate-admissions/)")
-
-st.sidebar.markdown("---")
-st.sidebar.subheader("Disclaimer and Sources")
 st.sidebar.markdown(
-    "Disclaimer: This tool is for educational planning purposes only. "
-    "Course availability varies by secondary school, and post-secondary admission requirements change periodically. "
-    "Verify official prerequisite guidelines directly with provincial education authorities and target university admissions offices.\n\n"
-    "Sources: Mapped from provincial education standards, UBC, and SFU guidelines."
+    "<h1 style='color: grey;'>Guide and References</h1>", unsafe_allow_html=True
 )
 
-st.sidebar.markdown("---")
-st.sidebar.subheader("Cognitive Profile Definitions")
-st.sidebar.markdown("**PA (Practical / Analytical):** Blends analytical thinking with hands-on building and mechanical systems.")
-st.sidebar.markdown("**AC (Analytical / Creative):** Systems thinkers focused on algorithmic logic, coding, and structural patterns.")
-st.sidebar.markdown("**SC (Social / Creative):** Communicators focused on human-centered design, narrative structure, and interactive media.")
-st.sidebar.markdown("**AN (Analytical / Natural):** Data-driven thinkers focused on biological, environmental, and spatial systems.")
-st.sidebar.markdown("**AP (Analytical / Practical):** Focuses on electrical, industrial, and automated system execution.")
-st.sidebar.markdown("**CA (Creative / Analytical):** Combines quantitative data analysis with structured system architecture.")
-st.sidebar.markdown("**SA (Social / Analytical):** Focuses on health informatics, technology policy, and data governance.")
-st.sidebar.markdown("**NA (Natural / Analytical):** Focuses on resource management, chemical processes, and agricultural technology.")
-st.sidebar.markdown("**NP (Natural / Practical):** Focuses on sustainable energy engineering, materials science, and geological systems.")
-st.sidebar.markdown("**PN (Practical / Natural):** Focuses on operations research, robotics process automation, and industrial engineering.")
+st.sidebar.markdown(
+    "<h3 style='color: #007bff;'>App Navigation</h3>", unsafe_allow_html=True
+)
+st.sidebar.markdown(
+    "- [Grade 8 Compass App](https://grade8compass.streamlit.app/)"
+)
+
+st.sidebar.markdown(
+    "<h3 style='color: #28a745;'>Canadian University Admissions</h3>",
+    unsafe_allow_html=True,
+)
+st.sidebar.markdown("- [University of British Columbia (UBC)](https://you.ubc.ca/)")
+st.sidebar.markdown(
+    "- [Simon Fraser University (SFU)](https://www.sfu.ca/students/admission.html)"
+)
+st.sidebar.markdown(
+    "- [University of Toronto (U of T)](https://future.utoronto.ca/)"
+)
+st.sidebar.markdown(
+    "- [McGill University](https://www.mcgill.ca/undergraduate-admissions/)"
+)
+
+st.sidebar.markdown(
+    "<h3 style='color: #fd7e14;'>Disclaimer and Sources</h3>",
+    unsafe_allow_html=True,
+)
+st.sidebar.markdown(
+    "Disclaimer: This tool is for educational planning purposes only. Course"
+    " availability varies by secondary school, and post-secondary admission"
+    " requirements change periodically. Verify official prerequisite"
+    " guidelines directly with provincial education authorities and target"
+    " university admissions offices.\n\nSources: Mapped from provincial"
+    " education standards, UBC, and SFU guidelines."
+)
+
+st.sidebar.markdown(
+    "<h3 style='color: #6f42c1;'>Cognitive Profile Definitions</h3>",
+    unsafe_allow_html=True,
+)
+st.sidebar.markdown(
+    "**PA (Practical / Analytical):** Blends analytical thinking with"
+    " hands-on building and mechanical systems."
+)
+st.sidebar.markdown(
+    "**AC (Analytical / Creative):** Systems thinkers focused on algorithmic"
+    " logic, coding, and structural patterns."
+)
+st.sidebar.markdown(
+    "**SC (Social / Creative):** Communicators focused on human-centered"
+    " design, narrative structure, and interactive media."
+)
+st.sidebar.markdown(
+    "**AN (Analytical / Natural):** Data-driven thinkers focused on"
+    " biological, environmental, and spatial systems."
+)
+st.sidebar.markdown(
+    "**AP (Analytical / Practical):** Focuses on electrical, industrial, and"
+    " automated system execution."
+)
+st.sidebar.markdown(
+    "**CA (Creative / Analytical):** Combines quantitative data analysis with"
+    " structured system architecture."
+)
+st.sidebar.markdown(
+    "**SA (Social / Analytical):** Focuses on health informatics, technology"
+    " policy, and data governance."
+)
+st.sidebar.markdown(
+    "**NA (Natural / Analytical):** Focuses on resource management, chemical"
+    " processes, and agricultural technology."
+)
+st.sidebar.markdown(
+    "**NP (Natural / Practical):** Focuses on sustainable energy engineering,"
+    " materials science, and geological systems."
+)
+st.sidebar.markdown(
+    "**PN (Practical / Natural):** Focuses on operations research, robotics"
+    " process automation, and industrial engineering."
+)
 
 st.title("Senior Pathway Mapper (Grades 10-12)")
-st.write("Map cognitive profiles to secondary graduation requirements and university prerequisites.")
+st.write(
+    "Map cognitive profiles to secondary graduation requirements and university"
+    " prerequisites."
+)
 
 st.warning(
-    "IMPORTANT DISCLAIMER: This tool is for educational planning purposes only. "
-    "Course availability varies by secondary school, and post-secondary admission requirements change periodically. "
-    "Verify official prerequisite guidelines directly with provincial/state education authorities and target university admissions offices."
+    "IMPORTANT DISCLAIMER: This tool is for educational planning purposes only."
+    " Course availability varies by secondary school, and post-secondary"
+    " admission requirements change periodically. Verify official prerequisite"
+    " guidelines directly with provincial/state education authorities and"
+    " target university admissions offices."
 )
 
 st.info(
-    "Prerequisite Notice: This tool requires a profile code generated by the Pathfinder assessment. "
-    "Complete the initial assessment first if you haven't established your profile code."
+    "Prerequisite Notice: This tool requires a profile code generated by the"
+    " Pathfinder assessment. Complete the initial assessment via the [Grade 8"
+    " Compass App](https://grade8compass.streamlit.app/) first if you haven't"
+    " established your profile code."
 )
 
 with st.expander("What Problem Does This App Solve?", expanded=False):
     st.markdown(
-        "- The Student Pain Point: Choosing courses for Grades 10, 11, and 12 can be stressful and confusing. "
-        "Picking the wrong electives or dropping key math/science classes too early can accidentally lock students out of top university programs like Engineering, Computer Science, or Health Sciences.\n"
-        "- The Solution: This tool connects natural cognitive strengths to high-demand majors (like AI, Data Engineering, and Applied Sciences) and reverse-engineers the high school timeline to maintain post-secondary eligibility."
+        "- The Student Pain Point: Choosing courses for Grades 10, 11, and 12"
+        " can be stressful and confusing. Picking the wrong electives or"
+        " dropping key math/science classes too early can accidentally lock"
+        " students out of top university programs like Engineering, Computer"
+        " Science, or Health Sciences.\n- The Solution: This tool connects"
+        " natural cognitive strengths to high-demand majors (like AI, Data"
+        " Engineering, and Applied Sciences) and reverse-engineers the high"
+        " school timeline to maintain post-secondary eligibility."
     )
 
-with st.expander("Secondary Graduation & University Minimum Score Standards", expanded=False):
+with st.expander(
+    "Secondary Graduation & University Minimum Score Standards", expanded=False
+):
     st.markdown(
-        "- Secondary Graduation Requirements (General Framework):\n"
-        "  - Minimum 80 credits across Grades 10 to 12.\n"
-        "  - Minimum passing grade per high school course: C- (50%) or equivalent standard.\n"
-        "  - Mandatory provincial/state literacy and numeracy assessments.\n"
-        "- University Admission Standards (Major Institutions Context):\n"
-        "  - General Admission Minimum: Overall average of 70%, with at least 70% in senior English.\n"
-        "  - Competitive Target Programs (AI, Software Engineering, Data Science, Medicine/Health): Competitive entry typically requires averages in the high 80s or 90s alongside strong marks in advanced math (Pre-Calculus 12 / Calculus) and laboratory sciences."
+        "- Secondary Graduation Requirements (General Framework):\n  - Minimum"
+        " 80 credits across Grades 10 to 12.\n  - Minimum passing grade per high"
+        " school course: C- (50%) or equivalent standard.\n  - Mandatory"
+        " provincial/state literacy and numeracy assessments.\n- University"
+        " Admission Standards (Major Institutions Context):\n  - General"
+        " Admission Minimum: Overall average of 70%, with at least 70% in"
+        " senior English.\n  - Competitive Target Programs (AI, Software"
+        " Engineering, Data Science, Medicine/Health): Competitive entry"
+        " typically requires averages in the high 80s or 90s alongside strong"
+        " marks in advanced math (Pre-Calculus 12 / Calculus) and laboratory"
+        " sciences."
     )
 
 st.markdown("---")
 
 st.subheader("1. Profile-Matched Major Recommendations")
-st.write("Expand any recommended major below to view its description, career paths, and corresponding category track:")
+st.write(
+    "Expand any recommended major below to view its description, career paths,"
+    " and corresponding category track:"
+)
 
 profile_code = st.selectbox(
-    "Select Your Pathfinder Profile Code", 
-    ["PA", "AC", "SC", "AN", "AP", "CA", "SA", "NA", "NP", "PN"]
+    "Select Your Pathfinder Profile Code",
+    ["PA", "AC", "SC", "AN", "AP", "CA", "SA", "NA", "NP", "PN"],
 )
 
 profile_major_mapping = {
-    "PA": ["Computer Engineering", "Mechatronics & Robotics", "Data Engineering", "Civil Infrastructure Systems"],
-    "AC": ["Software Engineering", "Artificial Intelligence & Machine Learning", "Applied Mathematics & Statistics", "Cybersecurity Systems"],
-    "SC": ["Interactive Arts & Technology", "Cognitive Systems", "Business Technology Management", "Digital Media Design"],
-    "AN": ["Biomedical Engineering", "Environmental Systems & Data Analytics", "Biochemistry", "Geomatics Engineering"],
-    "AP": ["Electrical Engineering", "Industrial Automation", "Mechanical Engineering", "Supply Chain Analytics"],
-    "CA": ["Data Science", "Computational Linguistics", "Information Systems Architecture", "Financial Mathematics"],
-    "SA": ["Health Informatics", "User Experience Design", "Technology Policy & Governance", "Bioinformatics"],
-    "NA": ["Environmental Science", "Resource Management", "Chemical Engineering", "Agricultural Technology"],
-    "NP": ["Sustainable Energy Engineering", "Materials Science", "Biomechanical Engineering", "Geological Engineering"],
-    "PN": ["Systems Engineering", "Operations Research", "Robotics Process Automation", "Industrial Engineering"]
+    "PA": [
+        "Computer Engineering",
+        "Mechatronics & Robotics",
+        "Data Engineering",
+        "Civil Infrastructure Systems",
+    ],
+    "AC": [
+        "Software Engineering",
+        "Artificial Intelligence & Machine Learning",
+        "Applied Mathematics & Statistics",
+        "Cybersecurity Systems",
+    ],
+    "SC": [
+        "Interactive Arts & Technology",
+        "Cognitive Systems",
+        "Business Technology Management",
+        "Digital Media Design",
+    ],
+    "AN": [
+        "Biomedical Engineering",
+        "Environmental Systems & Data Analytics",
+        "Biochemistry",
+        "Geomatics Engineering",
+    ],
+    "AP": [
+        "Electrical Engineering",
+        "Industrial Automation",
+        "Mechanical Engineering",
+        "Supply Chain Analytics",
+    ],
+    "CA": [
+        "Data Science",
+        "Computational Linguistics",
+        "Information Systems Architecture",
+        "Financial Mathematics",
+    ],
+    "SA": [
+        "Health Informatics",
+        "User Experience Design",
+        "Technology Policy & Governance",
+        "Bioinformatics",
+    ],
+    "NA": [
+        "Environmental Science",
+        "Resource Management",
+        "Chemical Engineering",
+        "Agricultural Technology",
+    ],
+    "NP": [
+        "Sustainable Energy Engineering",
+        "Materials Science",
+        "Biomechanical Engineering",
+        "Geological Engineering",
+    ],
+    "PN": [
+        "Systems Engineering",
+        "Operations Research",
+        "Robotics Process Automation",
+        "Industrial Engineering",
+    ],
 }
 
 major_details = {
     "Computer Engineering": {
         "track": "Software Engineering & Computer Science",
-        "focus": "Building physical computer hardware, embedded systems, and microchips.",
-        "jobs": "Hardware Engineer, Embedded Systems Developer, IoT Architect"
+        "focus": (
+            "Building physical computer hardware, embedded systems, and"
+            " microchips."
+        ),
+        "jobs": (
+            "Hardware Engineer, Embedded Systems Developer, IoT Architect"
+        ),
     },
     "Mechatronics & Robotics": {
-        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
-        "focus": "Combining mechanical, electrical, and software engineering to design autonomous machines and robots.",
-        "jobs": "Robotics Engineer, Automation Specialist, Control Systems Engineer"
+        "track": (
+            "Engineering / Applied Science (Civil/Mechanical/Electrical)"
+        ),
+        "focus": (
+            "Combining mechanical, electrical, and software engineering to"
+            " design autonomous machines and robots."
+        ),
+        "jobs": (
+            "Robotics Engineer, Automation Specialist, Control Systems"
+            " Engineer"
+        ),
     },
     "Data Engineering": {
         "track": "Data Engineering & Cloud Systems",
-        "focus": "Designing and building secure data pipelines that transform raw enterprise information into usable formats.",
-        "jobs": "Data Engineer, ETL Developer, Cloud Infrastructure Specialist"
+        "focus": (
+            "Designing and building secure data pipelines that transform raw"
+            " enterprise information into usable formats."
+        ),
+        "jobs": (
+            "Data Engineer, ETL Developer, Cloud Infrastructure Specialist"
+        ),
     },
     "Civil Infrastructure Systems": {
-        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
-        "focus": "Planning, designing, and maintaining public structures like bridges, sustainable water networks, and smart cities.",
-        "jobs": "Civil Engineer, Structural Analyst, Infrastructure Project Manager"
+        "track": (
+            "Engineering / Applied Science (Civil/Mechanical/Electrical)"
+        ),
+        "focus": (
+            "Planning, designing, and maintaining public structures like"
+            " bridges, sustainable water networks, and smart cities."
+        ),
+        "jobs": (
+            "Civil Engineer, Structural Analyst, Infrastructure Project"
+            " Manager"
+        ),
     },
     "Software Engineering": {
         "track": "Software Engineering & Computer Science",
-        "focus": "Designing, building, and scaling large-scale software applications, apps, and platforms.",
-        "jobs": "Software Developer, Full-Stack Engineer, DevOps Architect"
+        "focus": (
+            "Designing, building, and scaling large-scale software"
+            " applications, apps, and platforms."
+        ),
+        "jobs": "Software Developer, Full-Stack Engineer, DevOps Architect",
     },
     "Artificial Intelligence & Machine Learning": {
         "track": "Artificial Intelligence & Machine Learning",
-        "focus": "Creating algorithms that allow computers to learn from data, recognize patterns, and make intelligent decisions.",
-        "jobs": "AI Research Scientist, Machine Learning Engineer, Computer Vision Specialist"
+        "focus": (
+            "Creating algorithms that allow computers to learn from data,"
+            " recognize patterns, and make intelligent decisions."
+        ),
+        "jobs": (
+            "AI Research Scientist, Machine Learning Engineer, Computer Vision"
+            " Specialist"
+        ),
     },
     "Applied Mathematics & Statistics": {
         "track": "Business / Commerce & Analytics",
-        "focus": "Using advanced mathematical modeling and statistical analysis to solve complex problems in finance, tech, and science.",
-        "jobs": "Quantitative Analyst, Statistical Modeler, Data Consultant"
+        "focus": (
+            "Using advanced mathematical modeling and statistical analysis to"
+            " solve complex problems in finance, tech, and science."
+        ),
+        "jobs": "Quantitative Analyst, Statistical Modeler, Data Consultant",
     },
     "Cybersecurity Systems": {
         "track": "Software Engineering & Computer Science",
-        "focus": "Protecting enterprise networks, cloud platforms, and software infrastructure from digital breaches and threats.",
-        "jobs": "Information Security Analyst, Penetration Tester, Security Architect"
+        "focus": (
+            "Protecting enterprise networks, cloud platforms, and software"
+            " infrastructure from digital breaches and threats."
+        ),
+        "jobs": (
+            "Information Security Analyst, Penetration Tester, Security"
+            " Architect"
+        ),
     },
     "Interactive Arts & Technology": {
         "track": "Arts, Humanities & Social Sciences",
-        "focus": "Blending creative design, digital media, and human-computer interaction to build engaging tech experiences.",
-        "jobs": "UX/UI Designer, Interaction Designer, Creative Technologist"
+        "focus": (
+            "Blending creative design, digital media, and human-computer"
+            " interaction to build engaging tech experiences."
+        ),
+        "jobs": (
+            "UX/UI Designer, Interaction Designer, Creative Technologist"
+        ),
     },
     "Cognitive Systems": {
         "track": "Health Sciences & Medicine / Pre-Med",
-        "focus": "Studying how the human mind and computational systems process information, language, and perception.",
-        "jobs": "Cognitive Analyst, Human Factors Specialist, User Researcher"
+        "focus": (
+            "Studying how the human mind and computational systems process"
+            " information, language, and perception."
+        ),
+        "jobs": (
+            "Cognitive Analyst, Human Factors Specialist, User Researcher"
+        ),
     },
     "Business Technology Management": {
         "track": "Business / Commerce & Analytics",
-        "focus": "Bridging corporate business strategy with enterprise software solutions and digital workflows.",
-        "jobs": "Business Systems Analyst, IT Project Manager, Technology Consultant"
+        "focus": (
+            "Bridging corporate business strategy with enterprise software"
+            " solutions and digital workflows."
+        ),
+        "jobs": (
+            "Business Systems Analyst, IT Project Manager, Technology"
+            " Consultant"
+        ),
     },
     "Digital Media Design": {
         "track": "Arts, Humanities & Social Sciences",
-        "focus": "Producing digital assets, motion graphics, and visual layouts for modern entertainment and web applications.",
-        "jobs": "Digital Designer, Multimedia Producer, Visual Experience Lead"
+        "focus": (
+            "Producing digital assets, motion graphics, and visual layouts for"
+            " modern entertainment and web applications."
+        ),
+        "jobs": "Digital Designer, Multimedia Producer, Visual Experience Lead",
     },
     "Biomedical Engineering": {
         "track": "Health Sciences & Medicine / Pre-Med",
-        "focus": "Applying engineering principles to medicine to design advanced medical devices, prosthetics, and diagnostic imaging.",
-        "jobs": "Biomedical Engineer, Clinical Device Specialist, Biomaterials Researcher"
+        "focus": (
+            "Applying engineering principles to medicine to design advanced"
+            " medical devices, prosthetics, and diagnostic imaging."
+        ),
+        "jobs": (
+            "Biomedical Engineer, Clinical Device Specialist, Biomaterials"
+            " Researcher"
+        ),
     },
     "Environmental Systems & Data Analytics": {
         "track": "Data Engineering & Cloud Systems",
-        "focus": "Using environmental science and data analytics to model climate patterns, pollution spread, and conservation.",
-        "jobs": "Environmental Data Analyst, Sustainability Consultant, Ecological Modeler"
+        "focus": (
+            "Using environmental science and data analytics to model climate"
+            " patterns, pollution spread, and conservation."
+        ),
+        "jobs": (
+            "Environmental Data Analyst, Sustainability Consultant, Ecological"
+            " Modeler"
+        ),
     },
     "Biochemistry": {
         "track": "Health Sciences & Medicine / Pre-Med",
-        "focus": "Investigating the complex chemical processes and molecular structures inside living organisms.",
-        "jobs": "Biochemist, Pharmaceutical Researcher, Laboratory Operations Specialist"
+        "focus": (
+            "Investigating the complex chemical processes and molecular"
+            " structures inside living organisms."
+        ),
+        "jobs": (
+            "Biochemist, Pharmaceutical Researcher, Laboratory Operations"
+            " Specialist"
+        ),
     },
     "Geomatics Engineering": {
-        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
-        "focus": "Acquiring, modeling, and analyzing spatial, mapping, and geographic data using GIS and satellite technology.",
-        "jobs": "Geomatics Engineer, GIS Specialist, Spatial Data Analyst"
+        "track": (
+            "Engineering / Applied Science (Civil/Mechanical/Electrical)"
+        ),
+        "focus": (
+            "Acquiring, modeling, and analyzing spatial, mapping, and"
+            " geographic data using GIS and satellite technology."
+        ),
+        "jobs": "Geomatics Engineer, GIS Specialist, Spatial Data Analyst",
     },
     "Electrical Engineering": {
-        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
-        "focus": "Designing electrical power systems, smart renewable energy grids, circuitry, and electronic hardware.",
-        "jobs": "Electrical Engineer, Power Systems Specialist, Circuit Designer"
+        "track": (
+            "Engineering / Applied Science (Civil/Mechanical/Electrical)"
+        ),
+        "focus": (
+            "Designing electrical power systems, smart renewable energy grids,"
+            " circuitry, and electronic hardware."
+        ),
+        "jobs": (
+            "Electrical Engineer, Power Systems Specialist, Circuit Designer"
+        ),
     },
     "Industrial Automation": {
-        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
-        "focus": "Automating manufacturing and industrial assembly processes using programmable controllers and smart machinery.",
-        "jobs": "Automation Engineer, PLC Programmer, Manufacturing Systems Specialist"
+        "track": (
+            "Engineering / Applied Science (Civil/Mechanical/Electrical)"
+        ),
+        "focus": (
+            "Automating manufacturing and industrial assembly processes using"
+            " programmable controllers and smart machinery."
+        ),
+        "jobs": (
+            "Automation Engineer, PLC Programmer, Manufacturing Systems"
+            " Specialist"
+        ),
     },
     "Mechanical Engineering": {
-        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
-        "focus": "Designing, testing, and building physical thermal systems, engines, tools, and mechanical hardware.",
-        "jobs": "Mechanical Engineer, Thermal Systems Designer, Product Development Engineer"
+        "track": (
+            "Engineering / Applied Science (Civil/Mechanical/Electrical)"
+        ),
+        "focus": (
+            "Designing, testing, and building physical thermal systems,"
+            " engines, tools, and mechanical hardware."
+        ),
+        "jobs": (
+            "Mechanical Engineer, Thermal Systems Designer, Product"
+            " Development Engineer"
+        ),
     },
     "Supply Chain Analytics": {
         "track": "Business / Commerce & Analytics",
-        "focus": "Optimizing global logistics, inventory networks, and product distribution using quantitative analytics.",
-        "jobs": "Supply Chain Analyst, Logistics Coordinator, Operations Strategist"
+        "focus": (
+            "Optimizing global logistics, inventory networks, and product"
+            " distribution using quantitative analytics."
+        ),
+        "jobs": (
+            "Supply Chain Analyst, Logistics Coordinator, Operations Strategist"
+        ),
     },
     "Data Science": {
         "track": "Data Engineering & Cloud Systems",
-        "focus": "Extracting deep insights and predictive trends from massive datasets using advanced machine learning models.",
-        "jobs": "Data Scientist, Predictive Modeler, Business Intelligence Lead"
+        "focus": (
+            "Extracting deep insights and predictive trends from massive"
+            " datasets using advanced machine learning models."
+        ),
+        "jobs": "Data Scientist, Predictive Modeler, Business Intelligence Lead",
     },
     "Computational Linguistics": {
         "track": "Software Engineering & Computer Science",
-        "focus": "Analyzing human language from a computational standpoint to build translation software and voice assistants.",
-        "jobs": "NLP Engineer, Computational Linguist, Speech Recognition Developer"
+        "focus": (
+            "Analyzing human language from a computational standpoint to build"
+            " translation software and voice assistants."
+        ),
+        "jobs": (
+            "NLP Engineer, Computational Linguist, Speech Recognition Developer"
+        ),
     },
     "Information Systems Architecture": {
         "track": "Data Engineering & Cloud Systems",
-        "focus": "Designing the overarching enterprise IT framework, cloud storage, and database structure for large organizations.",
-        "jobs": "Enterprise Architect, Cloud Solutions Architect, Systems Integrator"
+        "focus": (
+            "Designing the overarching enterprise IT framework, cloud storage,"
+            " and database structure for large organizations."
+        ),
+        "jobs": (
+            "Enterprise Architect, Cloud Solutions Architect, Systems"
+            " Integrator"
+        ),
     },
     "Financial Mathematics": {
         "track": "Business / Commerce & Analytics",
-        "focus": "Applying rigorous mathematical models and stochastic calculus to financial markets, risk modeling, and asset pricing.",
-        "jobs": "Quantitative Financial Analyst, Risk Manager, Actuary"
+        "focus": (
+            "Applying rigorous mathematical models and stochastic calculus to"
+            " financial markets, risk modeling, and asset pricing."
+        ),
+        "jobs": "Quantitative Financial Analyst, Risk Manager, Actuary",
     },
     "Health Informatics": {
         "track": "Health Sciences & Medicine / Pre-Med",
-        "focus": "Managing complex healthcare data systems, electronic medical records, and clinical compliance protocols.",
-        "jobs": "Health Informatics Specialist, Clinical Data Manager, Healthcare IT Consultant"
+        "focus": (
+            "Managing complex healthcare data systems, electronic medical"
+            " records, and clinical compliance protocols."
+        ),
+        "jobs": (
+            "Health Informatics Specialist, Clinical Data Manager, Healthcare IT"
+            " Consultant"
+        ),
     },
     "User Experience Design": {
         "track": "Arts, Humanities & Social Sciences",
-        "focus": "Researching human behavior and designing intuitive, highly accessible interfaces for software and hardware products.",
-        "jobs": "UX Researcher, UI Designer, Product Design Lead"
+        "focus": (
+            "Researching human behavior and designing intuitive, highly"
+            " accessible interfaces for software and hardware products."
+        ),
+        "jobs": "UX Researcher, UI Designer, Product Design Lead",
     },
     "Technology Policy & Governance": {
         "track": "Business / Commerce & Analytics",
-        "focus": "Drafting regulatory frameworks, ethical guidelines, and compliance policies for emerging technologies like AI.",
-        "jobs": "AI Governance Analyst, Technology Policy Advisor, Data Privacy Officer"
+        "focus": (
+            "Drafting regulatory frameworks, ethical guidelines, and compliance"
+            " policies for emerging technologies like AI."
+        ),
+        "jobs": (
+            "AI Governance Analyst, Technology Policy Advisor, Data Privacy"
+            " Officer"
+        ),
     },
     "Bioinformatics": {
         "track": "Health Sciences & Medicine / Pre-Med",
-        "focus": "Using advanced software and computational scripts to analyze complex biological datasets like DNA and RNA sequences.",
-        "jobs": "Bioinformatician, Computational Biologist, Genomics Data Analyst"
+        "focus": (
+            "Using advanced software and computational scripts to analyze"
+            " complex biological datasets like DNA and RNA sequences."
+        ),
+        "jobs": (
+            "Bioinformatician, Computational Biologist, Genomics Data Analyst"
+        ),
     },
     "Environmental Science": {
         "track": "Arts, Humanities & Social Sciences",
-        "focus": "Studying natural ecosystems, pollution control mechanisms, and sustainability initiatives to protect the environment.",
-        "jobs": "Environmental Scientist, Conservation Officer, Sustainability Coordinator"
+        "focus": (
+            "Studying natural ecosystems, pollution control mechanisms, and"
+            " sustainability initiatives to protect the environment."
+        ),
+        "jobs": (
+            "Environmental Scientist, Conservation Officer, Sustainability"
+            " Coordinator"
+        ),
     },
     "Resource Management": {
         "track": "Arts, Humanities & Social Sciences",
-        "focus": "Managing sustainable extraction, forestry, water reserves, and energy use across public and private lands.",
-        "jobs": "Natural Resource Manager, Forestry Specialist, Environmental Planner"
+        "focus": (
+            "Managing sustainable extraction, forestry, water reserves, and"
+            " energy use across public and private lands."
+        ),
+        "jobs": (
+            "Natural Resource Manager, Forestry Specialist, Environmental"
+            " Planner"
+        ),
     },
     "Chemical Engineering": {
-        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
-        "focus": "Designing large-scale chemical manufacturing processes, oil refining systems, and sustainable biochemical production.",
-        "jobs": "Chemical Engineer, Process Control Engineer, Plant Operations Manager"
+        "track": (
+            "Engineering / Applied Science (Civil/Mechanical/Electrical)"
+        ),
+        "focus": (
+            "Designing large-scale chemical manufacturing processes, oil"
+            " refining systems, and sustainable biochemical production."
+        ),
+        "jobs": (
+            "Chemical Engineer, Process Control Engineer, Plant Operations"
+            " Manager"
+        ),
     },
     "Agricultural Technology": {
-        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
-        "focus": "Integrating smart IoT sensors, automation, and data tracking into modern farming and food production.",
-        "jobs": "AgTech Specialist, Precision Agriculture Engineer, Farm Systems Technologist"
+        "track": (
+            "Engineering / Applied Science (Civil/Mechanical/Electrical)"
+        ),
+        "focus": (
+            "Integrating smart IoT sensors, automation, and data tracking into"
+            " modern farming and food production."
+        ),
+        "jobs": (
+            "AgTech Specialist, Precision Agriculture Engineer, Farm Systems"
+            " Technologist"
+        ),
     },
     "Sustainable Energy Engineering": {
-        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
-        "focus": "Designing clean energy infrastructure including solar systems, wind generation, hydrogen power, and smart grids.",
-        "jobs": "Renewable Energy Engineer, CleanTech Specialist, Energy Systems Analyst"
+        "track": (
+            "Engineering / Applied Science (Civil/Mechanical/Electrical)"
+        ),
+        "focus": (
+            "Designing clean energy infrastructure including solar systems,"
+            " wind generation, hydrogen power, and smart grids."
+        ),
+        "jobs": (
+            "Renewable Energy Engineer, CleanTech Specialist, Energy Systems"
+            " Analyst"
+        ),
     },
     "Materials Science": {
-        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
-        "focus": "Inventing and testing advanced materials with unique structural properties for aerospace, tech, and medicine.",
-        "jobs": "Materials Scientist, Metallurgist, Nanotechnology Engineer"
+        "track": (
+            "Engineering / Applied Science (Civil/Mechanical/Electrical)"
+        ),
+        "focus": (
+            "Inventing and testing advanced materials with unique structural"
+            " properties for aerospace, tech, and medicine."
+        ),
+        "jobs": (
+            "Materials Scientist, Metallurgist, Nanotechnology Engineer"
+        ),
     },
     "Biomechanical Engineering": {
-        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
-        "focus": "Merging mechanical engineering with human physiology to build orthopedic implants, prosthetics, and surgical tools.",
-        "jobs": "Biomechanical Engineer, Medical Device Developer, Prosthetics Designer"
+        "track": (
+            "Engineering / Applied Science (Civil/Mechanical/Electrical)"
+        ),
+        "focus": (
+            "Merging mechanical engineering with human physiology to build"
+            " orthopedic implants, prosthetics, and surgical tools."
+        ),
+        "jobs": (
+            "Biomechanical Engineer, Medical Device Developer, Prosthetics"
+            " Designer"
+        ),
     },
     "Geological Engineering": {
-        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
-        "focus": "Assessing earth structures, natural geological hazards, and soil mechanics for safe construction and mining.",
-        "jobs": "Geological Engineer, Geotechnical Consultant, Geo-environmental Specialist"
+        "track": (
+            "Engineering / Applied Science (Civil/Mechanical/Electrical)"
+        ),
+        "focus": (
+            "Assessing earth structures, natural geological hazards, and soil"
+            " mechanics for safe construction and mining."
+        ),
+        "jobs": (
+            "Geological Engineer, Geotechnical Consultant, Geo-environmental"
+            " Specialist"
+        ),
     },
     "Systems Engineering": {
-        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
-        "focus": "Managing complex, large-scale technical projects and synchronizing multidisciplinary engineering teams.",
-        "jobs": "Systems Engineer, Technical Project Manager, Integration Specialist"
+        "track": (
+            "Engineering / Applied Science (Civil/Mechanical/Electrical)"
+        ),
+        "focus": (
+            "Managing complex, large-scale technical projects and"
+            " synchronizing multidisciplinary engineering teams."
+        ),
+        "jobs": (
+            "Systems Engineer, Technical Project Manager, Integration"
+            " Specialist"
+        ),
     },
     "Operations Research": {
         "track": "Business / Commerce & Analytics",
-        "focus": "Using advanced math, data, and optimization algorithms to improve complex corporate decision-making and logistics.",
-        "jobs": "Operations Research Analyst, Logistics Optimizer, Management Scientist"
+        "focus": (
+            "Using advanced math, data, and optimization algorithms to improve"
+            " complex corporate decision-making and logistics."
+        ),
+        "jobs": (
+            "Operations Research Analyst, Logistics Optimizer, Management"
+            " Scientist"
+        ),
     },
     "Robotics Process Automation": {
         "track": "Software Engineering & Computer Science",
-        "focus": "Building software bots to automate repetitive enterprise administrative workflows and office procedures.",
-        "jobs": "RPA Developer, Business Process Automation Analyst, Workflow Engineer"
+        "focus": (
+            "Building software bots to automate repetitive enterprise"
+            " administrative workflows and office procedures."
+        ),
+        "jobs": (
+            "RPA Developer, Business Process Automation Analyst, Workflow"
+            " Engineer"
+        ),
     },
     "Industrial Engineering": {
-        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
-        "focus": "Streamlining factory production lines, supply chain layouts, and labor workflows to eliminate waste.",
-        "jobs": "Industrial Engineer, Process Improvement Specialist, Quality Assurance Manager"
-    }
+        "track": (
+            "Engineering / Applied Science (Civil/Mechanical/Electrical)"
+        ),
+        "focus": (
+            "Streamlining factory production lines, supply chain layouts,"
+            " and labor workflows to eliminate waste."
+        ),
+        "jobs": (
+            "Industrial Engineer, Process Improvement Specialist, Quality"
+            " Assurance Manager"
+        ),
+    },
 }
 
-recommended = profile_major_mapping.get(profile_code, ["General Sciences", "Business Administration", "Arts"])
+recommended = profile_major_mapping.get(
+    profile_code, ["General Sciences", "Business Administration", "Arts"]
+)
 
-st.write(f"Based on profile **{profile_code}**, here are matched majors. Expand any item to view details and category track:")
+st.write(
+    f"Based on profile **{profile_code}**, here are matched majors. Expand any"
+    " item to view details and category track:"
+)
 for major in recommended:
-    details = major_details.get(major, {
-        "track": "Arts, Humanities & Social Sciences",
-        "focus": "General academic and professional exploration.",
-        "jobs": "Various professional roles"
-    })
+    details = major_details.get(
+        major,
+        {
+            "track": "Arts, Humanities & Social Sciences",
+            "focus": "General academic and professional exploration.",
+            "jobs": "Various professional roles",
+        },
+    )
     with st.expander(major):
         st.markdown(f"- Category Track in Section 2: `{details['track']}`")
         st.markdown(f"- What you do: {details['focus']}")
@@ -310,7 +678,10 @@ for major in recommended:
 st.markdown("---")
 
 st.subheader("2. Select Target Post-Secondary Field")
-st.write("Select the category track below to generate the exact senior high school prerequisite roadmap.")
+st.write(
+    "Select the category track below to generate the exact senior high school"
+    " prerequisite roadmap."
+)
 
 target_field = st.selectbox(
     "Select Target Field / Track",
@@ -318,48 +689,111 @@ target_field = st.selectbox(
         "Artificial Intelligence & Machine Learning",
         "Data Engineering & Cloud Systems",
         "Software Engineering & Computer Science",
-        "Engineering / Applied Science (Civil/Mechanical/Electrical)",
+        (
+            "Engineering / Applied Science"
+            " (Civil/Mechanical/Electrical)"
+        ),
         "Health Sciences & Medicine / Pre-Med",
         "Business / Commerce & Analytics",
-        "Arts, Humanities & Social Sciences"
-    ]
+        "Arts, Humanities & Social Sciences",
+    ],
 )
 
 st.markdown("---")
 if st.button("Generate Senior Roadmap", type="primary"):
     st.subheader(f"Senior Curriculum Roadmap: {target_field}")
-    
-    if "Artificial Intelligence" in target_field or "Data Engineering" in target_field or "Software Engineering" in target_field:
+
+    if (
+        "Artificial Intelligence" in target_field
+        or "Data Engineering" in target_field
+        or "Software Engineering" in target_field
+    ):
         st.success("Targeting Tech/AI Track")
-        st.write("Grade 10: Pre-Calculus 10, Science 10, Computer Programming 11/12 (ADST)")
-        st.write("Grade 11: Pre-Calculus 11, Physics 11, Chemistry 11, English Studies 11, Computer Science 11")
-        st.write("Grade 12: Calculus 12, Pre-Calculus 12, Physics 12, English 12, Computer Studies 12 / Data Analytics 12")
+        st.write(
+            "Grade 10: Pre-Calculus 10, Science 10, Computer Programming 11/12"
+            " (ADST)"
+        )
+        st.write(
+            "Grade 11: Pre-Calculus 11, Physics 11, Chemistry 11, English"
+            " Studies 11, Computer Science 11"
+        )
+        st.write(
+            "Grade 12: Calculus 12, Pre-Calculus 12, Physics 12, English 12,"
+            " Computer Studies 12 / Data Analytics 12"
+        )
     elif "Engineering" in target_field:
         st.success("Targeting Applied Science / Engineering Track")
         st.write("Grade 10: Pre-Calculus 10, Science 10, ADST Metal/Electronics 10")
-        st.write("Grade 11: Pre-Calculus 11, Physics 11, Chemistry 11, English Studies 11")
-        st.write("Grade 12: Calculus 12, Pre-Calculus 12, Physics 12, Chemistry 12, English 12")
+        st.write(
+            "Grade 11: Pre-Calculus 11, Physics 11, Chemistry 11, English Studies"
+            " 11"
+        )
+        st.write(
+            "Grade 12: Calculus 12, Pre-Calculus 12, Physics 12, Chemistry 12,"
+            " English 12"
+        )
     elif "Health Sciences" in target_field or "Medicine" in target_field:
         st.success("Targeting Health Sciences & Medicine Track")
         st.write("Grade 10: Pre-Calculus 10, Science 10")
-        st.write("Grade 11: Pre-Calculus 11, Chemistry 11, Life Sciences 11 (Biology), English Studies 11")
-        st.write("Grade 12: Pre-Calculus 12, Anatomy & Physiology 12, Chemistry 12, English 12")
+        st.write(
+            "Grade 11: Pre-Calculus 11, Chemistry 11, Life Sciences 11"
+            " (Biology), English Studies 11"
+        )
+        st.write(
+            "Grade 12: Pre-Calculus 12, Anatomy & Physiology 12, Chemistry 12,"
+            " English 12"
+        )
     elif "Business" in target_field:
         st.success("Targeting Business / Commerce Track")
-        st.write("Grade 10: Foundations of Math 10 or Pre-Calculus 10, Science 10")
-        st.write("Grade 11: Pre-Calculus 11 or Foundations of Math 11, English Studies 11, Economics 12")
-        st.write("Grade 12: Pre-Calculus 12 or Calculus 12, English 12, Data Analytics 11/12")
+        st.write(
+            "Grade 10: Foundations of Math 10 or Pre-Calculus 10, Science 10"
+        )
+        st.write(
+            "Grade 11: Pre-Calculus 11 or Foundations of Math 11, English Studies"
+            " 11, Economics 12"
+        )
+        st.write(
+            "Grade 12: Pre-Calculus 12 or Calculus 12, English 12, Data"
+            " Analytics 11/12"
+        )
     else:
         st.success(f"Targeting: {target_field}")
-        st.write("Grade 10: Foundations of Math 10, Science 10, Career Life Education 10")
-        st.write("Grade 11: Foundations of Math 11, English Studies 11, Relevant Academic Electives")
-        st.write("Grade 12: Foundations of Math 12 / Pre-Calculus 12, English 12, Grade 12 Academic Electives")
+        st.write(
+            "Grade 10: Foundations of Math 10, Science 10, Career Life"
+            " Education 10"
+        )
+        st.write(
+            "Grade 11: Foundations of Math 11, English Studies 11, Relevant"
+            " Academic Electives"
+        )
+        st.write(
+            "Grade 12: Foundations of Math 12 / Pre-Calculus 12, English 12,"
+            " Grade 12 Academic Electives"
+        )
 
 st.markdown("---")
 st.subheader("Official Reference Sources")
-st.write("Prerequisite frameworks and curriculum mappings are compiled from public educational standards:")
-st.markdown("- [BC Ministry of Education Graduation Requirements](https://www2.gov.bc.ca/gov/content/education-training/k-12/support/graduation)")
-st.markdown("- [University of British Columbia (UBC) Undergraduate Admissions](https://you.ubc.ca/)")
-st.markdown("- [Simon Fraser University (SFU) Undergraduate Admissions](https://www.sfu.ca/students/admission.html)")
-st.markdown("- [University of Toronto Undergraduate Admissions](https://future.utoronto.ca/)")
-st.markdown("- [McGill University Undergraduate Admissions](https://www.mcgill.ca/undergraduate-admissions/)")
+st.write(
+    "Prerequisite frameworks and curriculum mappings are compiled from public"
+    " educational standards:"
+)
+st.markdown(
+    "- [BC Ministry of Education Graduation"
+    " Requirements](https://www2.gov.bc.ca/gov/content/education-training/k-12/support/graduation)"
+)
+st.markdown(
+    "- [University of British Columbia (UBC) Undergraduate"
+    " Admissions](https://you.ubc.ca/)"
+)
+st.markdown(
+    "- [Simon Fraser University (SFU) Undergraduate"
+    " Admissions](https://www.sfu.ca/students/admission.html)"
+)
+st.markdown(
+    "- [University of Toronto Undergraduate"
+    " Admissions](https://future.utoronto.ca/)"
+)
+st.markdown(
+    "- [McGill University Undergraduate"
+    " Admissions](https://www.mcgill.ca/undergraduate-admissions/)"
+)
