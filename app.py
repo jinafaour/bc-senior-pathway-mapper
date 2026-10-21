@@ -2,8 +2,26 @@ import streamlit as st
 
 st.set_page_config(page_title="Senior Pathway Mapper", layout="wide")
 
+# ==========================================
+# CUSTOM DARK THEME STYLING
+# ==========================================
+st.markdown("""
+    <style>
+    .stApp {
+        background-color: #0f172a;
+        color: #e2e8f0;
+    }
+    .stSelectbox, .stTextInput {
+        color: #000000;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# ==========================================
+# SIDEBAR: SECTIONS ORDERED WITH UNIQUE COLORS
+# ==========================================
 st.sidebar.markdown(
-    "<h1 style='color: grey;'>Guide and References</h1>", unsafe_allow_html=True
+    "<h1 style='color: #94a3b8;'>Guide and References</h1>", unsafe_allow_html=True
 )
 
 st.sidebar.markdown(
@@ -79,6 +97,9 @@ st.sidebar.markdown(
     " education standards, UBC, and SFU guidelines."
 )
 
+# ==========================================
+# MAIN PAGE CONTENT
+# ==========================================
 st.title("Senior Pathway Mapper (Grades 10-12)")
 st.write(
     "Map cognitive profiles to secondary graduation requirements and university"
