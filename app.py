@@ -64,8 +64,9 @@ with st.expander("📊 BC Graduation & University Minimum Score Standards", expa
 
 st.markdown("---")
 
-# Step 1: Input Profile Code & Recommendations with Descriptions & Jobs
+# Step 1: Input Profile Code & Recommendations with Drop-down Expanders
 st.subheader("1. Profile-Matched Major Recommendations")
+st.write("Click on any recommended major below to view its description, career paths, and **which category track it belongs to**.")
 
 profile_code = st.selectbox(
     "Select Your Pathfinder Profile Code", 
@@ -87,162 +88,202 @@ profile_major_mapping = {
 
 major_details = {
     "Computer Engineering": {
+        "track": "Software Engineering & Computer Science",
         "focus": "Building physical computer hardware, embedded systems, and microchips.",
         "jobs": "Hardware Engineer, Embedded Systems Developer, IoT Architect"
     },
     "Mechatronics & Robotics": {
+        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
         "focus": "Combining mechanical, electrical, and software engineering to design autonomous machines and robots.",
         "jobs": "Robotics Engineer, Automation Specialist, Control Systems Engineer"
     },
     "Data Engineering": {
+        "track": "Data Engineering & Cloud Systems",
         "focus": "Designing and building secure data pipelines that transform raw enterprise information into usable formats.",
         "jobs": "Data Engineer, ETL Developer, Cloud Infrastructure Specialist"
     },
     "Civil Infrastructure Systems": {
+        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
         "focus": "Planning, designing, and maintaining public structures like bridges, sustainable water networks, and smart cities.",
         "jobs": "Civil Engineer, Structural Analyst, Infrastructure Project Manager"
     },
     "Software Engineering": {
+        "track": "Software Engineering & Computer Science",
         "focus": "Designing, building, and scaling large-scale software applications, apps, and platforms.",
         "jobs": "Software Developer, Full-Stack Engineer, DevOps Architect"
     },
     "Artificial Intelligence & Machine Learning": {
+        "track": "Artificial Intelligence & Machine Learning",
         "focus": "Creating algorithms that allow computers to learn from data, recognize patterns, and make intelligent decisions.",
         "jobs": "AI Research Scientist, Machine Learning Engineer, Computer Vision Specialist"
     },
     "Applied Mathematics & Statistics": {
+        "track": "Business / Commerce & Analytics",
         "focus": "Using advanced mathematical modeling and statistical analysis to solve complex problems in finance, tech, and science.",
         "jobs": "Quantitative Analyst, Statistical Modeler, Data Consultant"
     },
     "Cybersecurity Systems": {
+        "track": "Software Engineering & Computer Science",
         "focus": "Protecting enterprise networks, cloud platforms, and software infrastructure from digital breaches and threats.",
         "jobs": "Information Security Analyst, Penetration Tester, Security Architect"
     },
     "Interactive Arts & Technology": {
+        "track": "Arts, Humanities & Social Sciences",
         "focus": "Blending creative design, digital media, and human-computer interaction to build engaging tech experiences.",
         "jobs": "UX/UI Designer, Interaction Designer, Creative Technologist"
     },
     "Cognitive Systems": {
+        "track": "Health Sciences & Medicine / Pre-Med",
         "focus": "Studying how the human mind and computational systems process information, language, and perception.",
         "jobs": "Cognitive Analyst, Human Factors Specialist, User Researcher"
     },
     "Business Technology Management": {
+        "track": "Business / Commerce & Analytics",
         "focus": "Bridging corporate business strategy with enterprise software solutions and digital workflows.",
         "jobs": "Business Systems Analyst, IT Project Manager, Technology Consultant"
     },
     "Digital Media Design": {
+        "track": "Arts, Humanities & Social Sciences",
         "focus": "Producing digital assets, motion graphics, and visual layouts for modern entertainment and web applications.",
         "jobs": "Digital Designer, Multimedia Producer, Visual Experience Lead"
     },
     "Biomedical Engineering": {
+        "track": "Health Sciences & Medicine / Pre-Med",
         "focus": "Applying engineering principles to medicine to design advanced medical devices, prosthetics, and diagnostic imaging.",
         "jobs": "Biomedical Engineer, Clinical Device Specialist, Biomaterials Researcher"
     },
     "Environmental Systems & Data Analytics": {
+        "track": "Data Engineering & Cloud Systems",
         "focus": "Using environmental science and data analytics to model climate patterns, pollution spread, and conservation.",
         "jobs": "Environmental Data Analyst, Sustainability Consultant, Ecological Modeler"
     },
     "Biochemistry": {
+        "track": "Health Sciences & Medicine / Pre-Med",
         "focus": "Investigating the complex chemical processes and molecular structures inside living organisms.",
         "jobs": "Biochemist, Pharmaceutical Researcher, Laboratory Operations Specialist"
     },
     "Geomatics Engineering": {
+        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
         "focus": "Acquiring, modeling, and analyzing spatial, mapping, and geographic data using GIS and satellite technology.",
         "jobs": "Geomatics Engineer, GIS Specialist, Spatial Data Analyst"
     },
     "Electrical Engineering": {
+        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
         "focus": "Designing electrical power systems, smart renewable energy grids, circuitry, and electronic hardware.",
         "jobs": "Electrical Engineer, Power Systems Specialist, Circuit Designer"
     },
     "Industrial Automation": {
+        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
         "focus": "Automating manufacturing and industrial assembly processes using programmable controllers and smart machinery.",
         "jobs": "Automation Engineer, PLC Programmer, Manufacturing Systems Specialist"
     },
     "Mechanical Engineering": {
+        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
         "focus": "Designing, testing, and building physical thermal systems, engines, tools, and mechanical hardware.",
         "jobs": "Mechanical Engineer, Thermal Systems Designer, Product Development Engineer"
     },
     "Supply Chain Analytics": {
+        "track": "Business / Commerce & Analytics",
         "focus": "Optimizing global logistics, inventory networks, and product distribution using quantitative analytics.",
         "jobs": "Supply Chain Analyst, Logistics Coordinator, Operations Strategist"
     },
     "Data Science": {
+        "track": "Data Engineering & Cloud Systems",
         "focus": "Extracting deep insights and predictive trends from massive datasets using advanced machine learning models.",
         "jobs": "Data Scientist, Predictive Modeler, Business Intelligence Lead"
     },
     "Computational Linguistics": {
+        "track": "Software Engineering & Computer Science",
         "focus": "Analyzing human language from a computational standpoint to build translation software and voice assistants.",
         "jobs": "NLP Engineer, Computational Linguist, Speech Recognition Developer"
     },
     "Information Systems Architecture": {
+        "track": "Data Engineering & Cloud Systems",
         "focus": "Designing the overarching enterprise IT framework, cloud storage, and database structure for large organizations.",
         "jobs": "Enterprise Architect, Cloud Solutions Architect, Systems Integrator"
     },
     "Financial Mathematics": {
+        "track": "Business / Commerce & Analytics",
         "focus": "Applying rigorous mathematical models and stochastic calculus to financial markets, risk modeling, and asset pricing.",
         "jobs": "Quantitative Financial Analyst, Risk Manager, Actuary"
     },
     "Health Informatics": {
+        "track": "Health Sciences & Medicine / Pre-Med",
         "focus": "Managing complex healthcare data systems, electronic medical records, and clinical compliance protocols.",
         "jobs": "Health Informatics Specialist, Clinical Data Manager, Healthcare IT Consultant"
     },
     "User Experience Design": {
+        "track": "Arts, Humanities & Social Sciences",
         "focus": "Researching human behavior and designing intuitive, highly accessible interfaces for software and hardware products.",
         "jobs": "UX Researcher, UI Designer, Product Design Lead"
     },
     "Technology Policy & Governance": {
+        "track": "Business / Commerce & Analytics",
         "focus": "Drafting regulatory frameworks, ethical guidelines, and compliance policies for emerging technologies like AI.",
         "jobs": "AI Governance Analyst, Technology Policy Advisor, Data Privacy Officer"
     },
     "Bioinformatics": {
+        "track": "Health Sciences & Medicine / Pre-Med",
         "focus": "Using advanced software and computational scripts to analyze complex biological datasets like DNA and RNA sequences.",
         "jobs": "Bioinformatician, Computational Biologist, Genomics Data Analyst"
     },
     "Environmental Science": {
+        "track": "Arts, Humanities & Social Sciences",
         "focus": "Studying natural ecosystems, pollution control mechanisms, and sustainability initiatives to protect the environment.",
         "jobs": "Environmental Scientist, Conservation Officer, Sustainability Coordinator"
     },
     "Resource Management": {
+        "track": "Arts, Humanities & Social Sciences",
         "focus": "Managing sustainable extraction, forestry, water reserves, and energy use across public and private lands.",
         "jobs": "Natural Resource Manager, Forestry Specialist, Environmental Planner"
     },
     "Chemical Engineering": {
+        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
         "focus": "Designing large-scale chemical manufacturing processes, oil refining systems, and sustainable biochemical production.",
         "jobs": "Chemical Engineer, Process Control Engineer, Plant Operations Manager"
     },
     "Agricultural Technology": {
+        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
         "focus": "Integrating smart IoT sensors, automation, and data tracking into modern farming and food production.",
         "jobs": "AgTech Specialist, Precision Agriculture Engineer, Farm Systems Technologist"
     },
     "Sustainable Energy Engineering": {
+        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
         "focus": "Designing clean energy infrastructure including solar systems, wind generation, hydrogen power, and smart grids.",
         "jobs": "Renewable Energy Engineer, CleanTech Specialist, Energy Systems Analyst"
     },
     "Materials Science": {
+        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
         "focus": "Inventing and testing advanced materials with unique structural properties for aerospace, tech, and medicine.",
         "jobs": "Materials Scientist, Metallurgist, Nanotechnology Engineer"
     },
     "Biomechanical Engineering": {
+        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
         "focus": "Merging mechanical engineering with human physiology to build orthopedic implants, prosthetics, and surgical tools.",
         "jobs": "Biomechanical Engineer, Medical Device Developer, Prosthetics Designer"
     },
     "Geological Engineering": {
+        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
         "focus": "Assessing earth structures, natural geological hazards, and soil mechanics for safe construction and mining.",
         "jobs": "Geological Engineer, Geotechnical Consultant, Geo-environmental Specialist"
     },
     "Systems Engineering": {
+        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
         "focus": "Managing complex, large-scale technical projects and synchronizing multidisciplinary engineering teams.",
         "jobs": "Systems Engineer, Technical Project Manager, Integration Specialist"
     },
     "Operations Research": {
+        "track": "Business / Commerce & Analytics",
         "focus": "Using advanced math, data, and optimization algorithms to improve complex corporate decision-making and logistics.",
         "jobs": "Operations Research Analyst, Logistics Optimizer, Management Scientist"
     },
     "Robotics Process Automation": {
+        "track": "Software Engineering & Computer Science",
         "focus": "Building software bots to automate repetitive enterprise administrative workflows and office procedures.",
         "jobs": "RPA Developer, Business Process Automation Analyst, Workflow Engineer"
     },
     "Industrial Engineering": {
+        "track": "Engineering / Applied Science (Civil/Mechanical/Electrical)",
         "focus": "Streamlining factory production lines, supply chain layouts, and labor workflows to eliminate waste.",
         "jobs": "Industrial Engineer, Process Improvement Specialist, Quality Assurance Manager"
     }
@@ -250,20 +291,23 @@ major_details = {
 
 recommended = profile_major_mapping.get(profile_code, ["General Sciences", "Business Administration", "Arts"])
 
-st.write(f"Based on profile **{profile_code}**, recommended university majors and career pathways include:")
+st.write(f"Based on profile **{profile_code}**, here are your matched majors. Expand any item to see details and its corresponding category track:")
 for major in recommended:
     details = major_details.get(major, {
+        "track": "Arts, Humanities & Social Sciences",
         "focus": "General academic and professional exploration.",
         "jobs": "Various professional roles"
     })
-    st.markdown(f"### 🔹 {major}")
-    st.markdown(f"* **What you do:** {details['focus']}")
-    st.markdown(f"* **Possible Jobs:** {details['jobs']}")
+    with st.expander(f"🔹 {major}"):
+        st.markdown(f"* **Category Track in Section 2:** `{details['track']}`")
+        st.markdown(f"* **What you do:** {details['focus']}")
+        st.markdown(f"* **Possible Jobs:** {details['jobs']}")
 
 st.markdown("---")
 
-# Step 2: Target Field Selection (Dropdown only, robust mapping)
+# Step 2: Target Field Selection
 st.subheader("2. Select Target Post-Secondary Field")
+st.write("Now, select the broad category track below (matched from your exploration above) to generate your exact senior high school prerequisite roadmap.")
 
 target_field = st.selectbox(
     "Select Target Field / Track",
